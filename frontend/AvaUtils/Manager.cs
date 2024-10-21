@@ -1,24 +1,22 @@
 ﻿using Avalonia.Data;
-using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace AvaUtils;
 
 public static class Manager {
-    private static readonly Dictionary<string, Action<ObservableObject>> _navSetters = new();
-    private static readonly Dictionary<string, Optional<ObservableObject>> _navCurrentPages = new();
+    private static readonly Dictionary<string, Action<object>> _navSetters = new();
+    private static readonly Dictionary<string, Optional<object>> _navCurrentPages = new();
 
-    public static void RegisterNav(string key, Action<ObservableObject> setter, ObservableObject? currentPage) {
+    public static void RegisterNav(string key, Action<object> setter) {
         _navSetters[key] = setter;
-        if (currentPage != null) _navCurrentPages[key] = currentPage;
     }
 
-    public static void SetCurrentPage(string key, ObservableObject currentPage) {
+    public static void SetCurrentPage(string key, object currentPage) {
         if (!_navSetters.TryGetValue(key, out var setter)) return;
         setter.Invoke(currentPage);
         _navCurrentPages[key] = currentPage;
     }
 
-    public static Optional<ObservableObject> GetCurrentPage(string key) {
-        return _navCurrentPages.TryGetValue(key, out var page) ? page : Optional<ObservableObject>.Empty;
+    public static Optional<object> GetCurrentPage(string key) {
+        return _navCurrentPages.TryGetValue(key, out var page) ? page : Optional<object>.Empty;
     }
 }

@@ -1,9 +1,8 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
-using Avalonia.Data.Core;
 using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
-using Chalk.views;
+using Chalk.components;
 
 namespace Chalk;
 
@@ -19,7 +18,7 @@ public class App : Application {
                 desktop.MainWindow = new MainWindow();
                 break;
             case ISingleViewApplicationLifetime singleViewPlatform:
-                singleViewPlatform.MainView = new MainView();
+                singleViewPlatform.MainView = new MainComponent();
                 break;
         }
 

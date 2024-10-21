@@ -1,19 +1,17 @@
 using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Markup.Xaml;
+using Avalonia.Markup.Declarative;
 using Avalonia.Media;
 
 namespace Chalk.components;
 
-public partial class BackgroundGrid : UserControl {
-    public BackgroundGrid() {
-        InitializeComponent();
-    }
-
+public class BackgroundGrid : ComponentBase {
     public double GridSize { get; set; } = 20.0;
     public double OffsetX { get; set; }
     public double OffsetY { get; set; }
     public IBrush GridLineBrush { get; set; } = Brushes.LightGray;
+
+    protected override object Build() => new UserControl();
 
     public override void Render(DrawingContext context) {
         base.Render(context);

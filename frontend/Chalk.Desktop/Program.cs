@@ -1,5 +1,6 @@
 ﻿using System;
 using Avalonia;
+using Avalonia.Markup.Declarative;
 
 namespace Chalk.Desktop;
 
@@ -16,5 +17,6 @@ sealed class Program {
         => AppBuilder.Configure<App>()
             .UsePlatformDetect()
             .WithInterFont()
+            .UseRiderHotReload()
             .LogToTrace();
 }
