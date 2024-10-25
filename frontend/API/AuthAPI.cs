@@ -11,6 +11,7 @@ public class AuthAPI(ChalkAPI chalkApi) {
                 username, password
             }
         });
+        chalkApi.CurrentUser = res.Data;
         return res;
     }
 }

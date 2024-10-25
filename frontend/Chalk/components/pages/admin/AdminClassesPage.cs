@@ -3,12 +3,12 @@ using Avalonia.Layout;
 using Avalonia.Markup.Declarative;
 using Avalonia.Media;
 
-namespace Chalk.components.pages;
+namespace Chalk.components.pages.admin;
 
-public class HomePage : ComponentBase {
+public class AdminClassesPage : ComponentBase {
     protected override object Build() =>
         new TextBlock()
-            .Text("Home")
+            .Text("Classes")
             .HorizontalAlignment(HorizontalAlignment.Center)
             .VerticalAlignment(VerticalAlignment.Center)
             .FontSize(32)

@@ -1,6 +1,7 @@
 ﻿using System.Net;
 using System.Net.Http.Headers;
 using System.Text;
+using API.models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -22,6 +23,7 @@ public class ChalkAPI {
 
     public AuthAPI Auth => new AuthAPI(this);
     public SubjectAPI Subject => new SubjectAPI(this);
+    public UserDataJSON? CurrentUser { get; set; }
 
     private ChalkAPI() {
         var handler = new HttpClientHandler() {
